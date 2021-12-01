@@ -1,0 +1,52 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "---------------- LAUNCH -----------------",
+        },
+        {
+            "name": "Current File",
+            "type": "python",
+            "request": "launch",
+            "module": "${command:extension.commandvariable.file.relativeDirDots}.${fileBasenameNoExtension}",
+            "envFile": "${workspaceFolder}/.env.dev"
+        },
+        {
+            "name": "--------------- ATTACH API ---------------",
+        },
+        {
+            "name": "Run Django",
+            "type": "python",
+            "request": "attach",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "/usr/src/app/"
+                },
+            ],
+            "port": 5678,
+            "host": "127.0.0.1",
+        },
+        {
+            "name": "---------------- TESTS -----------------",
+        },
+        {
+            "name"; "Run all tests",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "${workspaceFolder}/tests"
+            ],
+        },
+        {
+            "name": "Current Test",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "${command:extension.commandvariable.file.relativeFilePosix}"
+            ],
+        },
+    ]
+}
